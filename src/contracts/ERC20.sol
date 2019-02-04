@@ -7,7 +7,11 @@ contract ERC20 {
         uint timestamp;
     }
 
-    mappping (address => Payment) private _payments;
+    mapping (address => Payment[]) private _payments;
+
+    constructor () public {
+        _payments[msg.sender].push(Payment(10000, now));
+    }
 
     function totalSupply() public view returns (uint) {
 
@@ -16,6 +20,7 @@ contract ERC20 {
     }
 
     function balanceOf(address who) public view returns (uint) {
-        
+        Payment[] memory payments = _payments[who];
+        return payments.length;
     }
 }
