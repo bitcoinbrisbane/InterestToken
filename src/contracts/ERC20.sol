@@ -32,8 +32,4 @@ contract ERC20 {
 
         return total;
     }
-
-    // function setRate(uint256 rate) public {
-    //     _rate = rate;
-    // }
 }
